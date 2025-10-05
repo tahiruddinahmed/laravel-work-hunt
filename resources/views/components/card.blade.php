@@ -5,17 +5,24 @@
     <div class="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
         <div class="p-6">
             <!-- Company Header -->
-            <div class="flex items-start mb-4">
-                <img class="w-12 h-12 rounded-lg object-cover border border-gray-200" src="./images/logos/company1.jpg"
-                    alt="Company logo">
-                <div class="ml-4">
-                    <h3 class="text-xl font-semibold text-gray-900">{{ $job->title }}</h3>
-                    <div class="flex items-center text-sm text-gray-500 mt-1">
-                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                        </svg>
-                        {{-- <span>Full-Time</span> --}}
+            <div class=" mb-4">
+                {{-- <img class="w-12 h-12 rounded-lg object-cover border border-gray-200" src="./images/logos/company1.jpg"
+                    alt="Company logo"> --}}
+
+                <div class="flex justify-between align-baseline">
+                    <div class="">
+                        <h3 class="text-xl font-semibold text-gray-900">{{ $job->title }}</h3>
+                        <div class="flex items-center text-sm text-gray-500 mt-1">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                            <span>Company name</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="px-2 py-1 bg-gray-100 rounded-md text-sm font-bold text-blue-600">{{ Str::ucfirst($job->experience) }}</p>
                     </div>
                 </div>
             </div>
@@ -57,22 +64,15 @@
                             d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                     </svg>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-2 py-1 bg-gray-100 rounded-md text-sm text-gray-600">Development</span>
-                        <span class="px-2 py-1 bg-gray-100 rounded-md text-sm text-gray-600">Coding</span>
+                        <span class="px-2 py-1 bg-gray-100 rounded-md text-sm text-gray-600">{{ $job->category->name }}</span>
+                        {{-- <span class="px-2 py-1 bg-gray-100 rounded-md text-sm text-gray-600">Coding</span> --}}
                     </div>
                 </div>
             </div>
 
             <!-- CTA Button -->
             <div class="mt-6">
-                <a href=""
-                    class="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md font-medium text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200">
-                    View Position
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                </a>
+                <x-link-button :href="route('jobs.show', $job)"> View Position </x-link-button>
             </div>
         </div>
     </div>

@@ -18,9 +18,7 @@
     </section>
 
     @if ($jobs->count())
-        <nav class="mt-4">
             {{ $jobs->links() }}
-        </nav>
     @endif
 
 </x-layout>

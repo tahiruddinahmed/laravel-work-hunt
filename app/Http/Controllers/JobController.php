@@ -13,7 +13,7 @@ class JobController extends Controller
     public function index()
     {
         return view('jobs.index', [
-            'jobs' => JobListing::latest()->paginate()
+            'jobs' => JobListing::with('category')->latest()->paginate()
         ]);
     }
 
@@ -36,9 +36,11 @@ class JobController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(JobListing $job)
     {
-        //
+        return view('jobs.show', [
+            'job' => $job
+        ]);
     }
 
     /**

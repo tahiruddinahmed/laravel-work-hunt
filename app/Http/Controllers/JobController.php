@@ -12,8 +12,10 @@ class JobController extends Controller
      */
     public function index()
     {
+        // most recent job - item 15 
+
         return view('jobs.index', [
-            'jobs' => JobListing::with('category')->latest()->paginate()
+            'jobs' => JobListing::latest()->paginate()
         ]);
     }
 

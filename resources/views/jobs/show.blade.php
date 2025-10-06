@@ -2,6 +2,9 @@
 
     <main class="container mx-auto px-4 py-8">
       <!-- Job Header Section -->
+      
+      <x-breadcrumbs class="mb-4" :links="['Jobs' => route('jobs.index'), $job->title => '#']"/>
+
       <div
         class="bg-white rounded-xl p-6 shadow-sm mb-4"
       >
@@ -14,9 +17,9 @@
               <span class="bg-blue-100/20 px-3 py-1 rounded-full text-sm"
                 >Company Name</span
               >
-              <span class="bg-blue-100/20 px-3 py-1 rounded-full text-sm"
+              {{-- <span class="bg-blue-100/20 px-3 py-1 rounded-full text-sm"
                 >{{ $job->experience }}</span
-              >
+              > --}}
               <span class="flex items-center">
                 <i class="fas fa-map-marker-alt mr-2"></i>
               {{ $job->location }}

@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('', fn() => to_route('jobs.index'));
+Route::get('', [HomeController::class, 'index']);
 
 Route::resource('jobs', JobController::class)
     ->only(['index', 'show']);

@@ -12,10 +12,18 @@ class JobController extends Controller
      */
     public function index()
     {
-        // most recent job - item 15 
+        $jobs = JobListing::with('category')->when(request('search'), function($query) {
+                $query->search(request('search'));
+            })->when(request('min_salary'), function($query) {
+                $query->where('salary', '>=', request('min_salary'));
+            })->when(request('max_salary'), function($query) {
+                $query->where('salary', '<=', request('max_salary'));
+        });
+
+        // $jobListings = $jobs->paginate(); 
 
         return view('jobs.index', [
-            'jobs' => JobListing::latest()->paginate()
+            'jobs' => $jobs->paginate()
         ]);
     }
 
